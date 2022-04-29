@@ -1,0 +1,37 @@
+<mvc:View controllerName="single.planning.cal.singleplanning.controller.Planning" xmlns:unified="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Single Planning Calender">
+					<content>
+						<SinglePlanningCalendar id="SPC1" class="sapUiSmallMarginTop" title="{i18n>MyCalendar}" appointmentSelect="handleAppointmentSelect" startHour="9" fullDay="false" startDateChange="handleStartDateChange" viewChange="onViewChange" enableAppointmentsDragAndDrop="true" startDate="{
+									path: 'local>/startDate'
+								}" appointmentDrop="onAppointmentDrop" appointments="{
+									path: 'local>/data'
+								}" moreLinkPress="handleMoreLinkPress" cellPress="onCellpress">
+							<actions>
+							
+							</actions>
+							<views>
+								<SinglePlanningCalendarMonthView id="idMonthView" key="MonthView" title="{i18n>Month}"></SinglePlanningCalendarMonthView>
+								<SinglePlanningCalendarWorkWeekView id="idWorkWeekView" key="WorkWeekView" title="{i18n>WorkWeek}" />
+								<SinglePlanningCalendarWeekView id="idWeekView" key="WeekView" title="{i18n>Week}" />
+								<SinglePlanningCalendarDayView id="idDayView" key="DayView" title="{i18n>Day}" />
+							</views>
+							<appointments>
+								<unified:CalendarAppointment title="{
+									path: 'local>U_NEO_JBS_HOURS'
+								}h - {
+									path: 'local>U_NEO_JBS_IDCOMMESSA'
+								}" text="{local>U_NEO_JBS_DESC}" color="{
+									path: 'local>U_NEO_JBS_STATUS',
+									formatter: '.formatColor'
+								}" startDate="{path:'local>U_NEO_JBS_DATE'}" endDate="{path:'local>endDate'}" />
+							</appointments>
+						</SinglePlanningCalendar>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
